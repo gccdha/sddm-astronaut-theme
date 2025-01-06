@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   qt6Packages,
   stdenvNoCC,
   version
