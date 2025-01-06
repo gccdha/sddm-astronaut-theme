@@ -11,10 +11,10 @@ stdenvNoCC.mkDerivation {
   src = lib.cleanSource ./.;
 
   dontConfigure = true;
-  dontBuild = true;
+  dontBuild = true; # might be why propogated build inputs do nothing?
   dontWrapQtApps = true;
 
-  propagatedBuildInputs = with qt6Packages; [
+  propagatedBuildInputs = with pkgs.qt6Packages; [
     qtvirtualkeyboard
     qtsvg
     qtmultimedia
@@ -28,7 +28,9 @@ stdenvNoCC.mkDerivation {
     cp -r $out/share/sddm/themes/sddm-astro/Fonts/* $out/share/fonts
   '';
 
-  postFixup = ''
+  # not sure how to fix the problem with the packages not showing up (below does not work)
+  # right now I am using a band-aid (see greeter module)
+  postFixup = '' 
     mkdir -p $out/nix-support
 
    echo ${qt6Packages.qtvirtualkeyboard} >> $out/nix-support/propagated-user-env-packages 
