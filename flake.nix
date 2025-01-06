@@ -17,7 +17,7 @@
   in
   {
     packages = eachSystem (system: {
-      sddm-chili = nixpkgs.legacyPackages.${system}.callPackage ./sddm-astro.nix { inherit version; };
+      sddm-astro = nixpkgs.legacyPackages.${system}.callPackage ./sddm-astro.nix { inherit version; };
     });
     defaultPackage = eachSystem (system: self.packages.${system}.sddm-astro);
   };

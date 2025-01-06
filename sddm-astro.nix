@@ -1,10 +1,10 @@
 {
   lib,
   qt6Packages,
-  stenvNoCC,
+  stdenvNoCC,
   version
 }:
-stenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation {
   pname = "sddm-astro";
   version = version;
 
@@ -33,7 +33,7 @@ stenvNoCC.mkDerivation {
 
    echo ${qt6Packages.qtvirtualkeyboard} >> $out/nix-support/propagated-user-env-packages 
    echo ${qt6Packages.qtsvg}             >> $out/nix-support/propagated-user-env-packages 
-   echo ${qt6Packages.tmultimedia}       >> $out/nix-support/propagated-user-env-packages  
+   echo ${qt6Packages.qtmultimedia}       >> $out/nix-support/propagated-user-env-packages  
   '';
 }
 
